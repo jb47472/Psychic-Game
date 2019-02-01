@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Psychic Game!</title>
-    <link rel="stylesheet"  href="assets/javascript/game.js">
+    <link rel="stylesheet" href="assets/javascript/game.js">
 
 </head>
+
 <body>
 
     <div id="game">
@@ -19,46 +21,49 @@
         <p>Your Guesses so far:</p>
     </div>
 
-<script type="text/javascript">
-    var computerGuess = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",];
-    var wins = 0;
-    var losses = 0;
-    var guessesLeft = 9;
-    var guessNumber = [];
+    <script type="text/javascript">
+        var computerGuess = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",];
+        var wins = 0;
+        var losses = 0;
+        var guessesLeft = 9;
+        var guessNumber = [];
 
-    document.onkeyup = function(event) {
-        var userGuess = event.key;
-        computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-        var options = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",];
-        
-        if (options.indexOf(userguess) >-1) {
+        document.onkeyup = function (event) {
+            var userGuess = event.key;
+            computerGuess = computerGuess[Math.floor(Math.random() * computerGuess.length)];
+            var options = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",];
+        }
+
+        if (options.indexOf(userguess) > -1) {
             if (userGuess === computerGuess) {
                 wins++;
                 guessesLeft = 9;
                 guessNumber = [];
-                console.log (YouAreAWinner);
-
+                console.log(YouAreAWinner);
             }
-            if (userGuess != computerGuess) {
-                guessesLeft --;
-                guessNumber.push(userguess);
-                console.log (computerGuess);
-            }
-
-            else (guessNumber === 0); {
-                losses ++;
-                guessesLeft = 9;
-                guessNumer = [];
-                console.log (youAreALoser);
-            }
-
-           
 
         }
-</script>
+        if (userGuess != computerGuess) {
+            guessesLeft--;
+            guessNumber.push(userguess);
+            console.log(computerGuess);
+        }
+
+        else (guessNumber === 0); {
+            losses++;
+            guessesLeft = 9;
+            guessNumer = [];
+            console.log(youAreALoser);
+        }
 
 
 
-    
+
+    </script>
+
+
+
+
 </body>
+
 </html>

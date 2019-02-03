@@ -32,35 +32,50 @@
             var userGuess = event.key;
             computerGuess = computerGuess[Math.floor(Math.random() * computerGuess.length)];
             var options = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",];
-        
 
-        if (options.indexOf(userguess) > -1) {
-            if (userGuess === computerGuess) {
-                wins++;
-                guessesLeft = 9;
-                guessNumber = [];
-                console.log("YouAreAWinner");
+            if (options.indexOf(userGuess) > -1) {
+
+                if (userGuess === computerGuess) {
+                    wins++;
+                    guessesLeft = 9;
+                    guessNumber = [];
+                    console.log("Smarty Pants!")
+                }
+
+                if (userGuess != computerGuess) {
+                    guessesLeft--;
+                    guessNumber.push(userGuess);
+                    console.log("Guess Again!")
+                }
+
+                if (guessesLeft === 0) {
+
+                    guessesLeft = 9;
+                    losses++;
+                    guessNumber = [];
+                    console.log("LOSER!!")
+
+
+                }
+
+                var html =
+                    "<h1> The Psychic Game </h1>" +
+                    "<p>Guess what letter I'm thinking of!</p>" +
+                    "<p>Wins: " + wins + "</p>" +
+                    "<p>Losses: " + losses + "</p>" +
+                    "<p>Guesses Left: " + guessesLeft + "</p>" +
+                    "<p>Your Guesses so far: " + guessNumber.join(", ") + "</p>";
+
+                document.querySelector("#game").innerHTML = html;
+
+
             }
 
-        }
-        if (userGuess != computerGuess) {
-            guessesLeft--;
-            guessNumber.push(userguess);
-            console.log(computerGuess);
-        }
 
-        else (guessNumber === 0); {
-            losses++;
-            guessesLeft = 9;
-            guessNumer = [];
-            console.log("youAreALoser");
-        }
-
-       
         };
 
 
-        
+
 
     </script>
 
